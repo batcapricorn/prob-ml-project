@@ -1,6 +1,3 @@
-[pipenv]
-install_search_all_sources = true
-
 [[source]]
 url = "https://pypi.org/simple"
 verify_ssl = true
