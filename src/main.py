@@ -1,40 +1,23 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
+#%%
 
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-
-# In[ ]:
-
-
+# %%
 # Import train and test data from CSV
-
 df_train = pd.read_csv("../data/DailyDelhiClimateTrain.csv", parse_dates=True)
 df_test = pd.read_csv("../data/DailyDelhiClimateTest.csv", parse_dates=True)
 
 
-# In[ ]:
-
-
+# %%
 df_train.head()
 df_test.head()
-
-
-# In[ ]:
-
 
 df_train.describe()
 # df_test.describe()
 
-
-# In[ ]:
-
-
+#%%
 # Visualization of input data before preparation
 
 df_total = df_train.append(df_test)
@@ -65,9 +48,7 @@ df_total["meanpressure"].plot()
 plt.show()
 
 
-# In[ ]:
-
-
+#%%
 # Data preparation
 
 ## Detection and removal of outliers
@@ -82,7 +63,7 @@ q_hi_test  = df_test["meanpressure"].quantile(0.99)
 df_filtered_test = df_test[(df_test["meanpressure"] < q_hi_test) & (df_test["meanpressure"] > q_low_test)]
 
 
-
+#%%
 ##Normalization
 df_filtered_train['meanpressure'] = np.log2(df_filtered_train['meanpressure'])
 df_filtered_test['meanpressure'] = np.log2(df_filtered_test['meanpressure'])
