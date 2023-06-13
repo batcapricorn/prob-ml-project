@@ -17,8 +17,6 @@ df_total.describe()
 #%%
 # Visualization of input data before preparation
 
-df_total = df_total.set_index('date')
-
 fig = plt.figure(figsize=(30, 10))
 rows = 2
 columns = 2

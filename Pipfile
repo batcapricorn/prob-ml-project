@@ -8,6 +8,7 @@ ipykernel = "*"
 matplotlib = "*"
 pandas = "*"
 sklearn = "*"
+scikit-learn = "*"
 
 [dev-packages]
 black = "*"
