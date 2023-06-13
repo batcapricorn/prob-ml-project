@@ -45,4 +45,4 @@ jobs:
       - name: Run main.py
         run: |
           cd src/
-          pipenv run python3 main.py
+          python3 main.py
