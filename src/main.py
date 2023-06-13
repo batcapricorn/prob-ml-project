@@ -47,8 +47,8 @@ plt.show()
 # Data preparation
 
 ## Detection and removal of outliers
-q_low = df_train["meanpressure"].quantile(0.01)
-q_hi  = df_train["meanpressure"].quantile(0.99)
+q_low = df_total["meanpressure"].quantile(0.01)
+q_hi  = df_total["meanpressure"].quantile(0.99)
 
 df_filtered_total = df_total[(df_total["meanpressure"] < q_hi) & (df_total["meanpressure"] > q_low)]
 
