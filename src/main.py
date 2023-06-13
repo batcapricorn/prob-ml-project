@@ -4,8 +4,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
+
+
 # %%
-# Import train and test data from CSV
+# Import data from CSV file
 df_total = pd.read_csv("../data/DailyDelhiClimate.csv", parse_dates=True)
 
 
@@ -64,6 +66,6 @@ df_filtered_total['meanpressure'] = np.log2(df_filtered_total['meanpressure'])
 
 scaler = StandardScaler()
 
-standardized_data = scaler.fit_transform(df_filtered_total)
+df_standardized_data = scaler.fit_transform(df_filtered_total)
 
-print(standardized_data)
+print(df_standardized_data)
