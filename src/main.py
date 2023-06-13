@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 # %%
 # Import train and test data from CSV
-df_total = pd.read_csv("../data/DailyDelhiClimate.csv", parse_dates=True)
+df_total = pd.read_csv("../data/DailyDelhiClimate.csv", parse_dates=True, index_col="date")
 
 
 # %%
@@ -65,3 +65,5 @@ scaler = StandardScaler()
 standardized_data = scaler.fit_transform(df_filtered_total)
 
 print(standardized_data)
+
+# %%
