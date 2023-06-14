@@ -1,3 +1,6 @@
+"""Main analysis of climate data using gaussian processes
+"""
+
 # %%
 
 import matplotlib.pyplot as plt

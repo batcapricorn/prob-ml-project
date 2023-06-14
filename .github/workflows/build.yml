@@ -39,14 +39,21 @@ jobs:
         run: pipenv requirements > requirements.txt
 
       # Install Dependencies
-      - name: Install dev and build dependencies
+      - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # Run build
       - name: Run main.py
         run: |
           cd src/
           python3 main.py
-  lint:
+
+      - name: Check linting
+        uses: fylein/python-pylint-github-action@v1
+        with:
+          args: python -m pip install matplotlib pandas scikit-learn ; pylint src
+
+  formatting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
