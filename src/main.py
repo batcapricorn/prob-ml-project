@@ -4,11 +4,17 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
+from datetime import datetime
 
 
 # %%
 # Import data from CSV file
 df_total = pd.read_csv("../data/DailyDelhiClimate.csv", parse_dates=True)
+
+#%%
+# Convert column containing the date to datetime format
+
+df_total['date'] = pd.to_datetime(df_total['date'], format="%Y-%m-%d")
 
 
 # %%
@@ -45,7 +51,7 @@ df_total["meanpressure"].plot()
 plt.show()
 
 #%%
-#Boxplot for detection of outliers
+# Boxplots before removal of outliers
 
 fig, ax = plt.subplots(1, 4, figsize=(30, 10))
 
@@ -63,24 +69,28 @@ plt.show()
 #%%
 # Data preparation
 
-## Removal of outliers
-q_low = df_total["meanpressure"].quantile(0.01)
-q_hi  = df_total["meanpressure"].quantile(0.99)
+## Removal of outliers using interquantile range (IQR)
+Q1 = df_total.quantile(0.25)
+Q3 = df_total.quantile(0.75)
+IQR = Q3 - Q1
 
-df_filtered_total = df_total[(df_total["meanpressure"] < q_hi) & (df_total["meanpressure"] > q_low)]
-
-
-
-#%%
-##Normalization
-df_filtered_total['meanpressure'] = np.log2(df_filtered_total['meanpressure'])
-
+df_total = df_total[~((df_total < (Q1 - 1.5 * IQR)) | (df_total > (Q3 + 1.5 * IQR))).any(axis=1)]
 
 #%%
-#Standardization of data
+#Boxplots after removal of outliers
 
-scaler = StandardScaler()
+fig, ax = plt.subplots(1, 4, figsize=(30, 10))
 
-df_standardized_data = scaler.fit_transform(df_filtered_total)
+# draw boxplots - for one column in each subplot
+df_total.boxplot('meantemp', ax=ax[0])
+df_total.boxplot('humidity', ax=ax[1])
+df_total.boxplot('wind_speed', ax=ax[2])
+df_total.boxplot('meanpressure', ax=ax[3])
 
-print(df_standardized_data)
+plt.subplots_adjust(wspace=0.5) 
+
+plt.show()
+# %%
+# Interpolate missing dates
+
+
