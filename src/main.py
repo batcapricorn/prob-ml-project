@@ -11,21 +11,12 @@ from datetime import datetime
 # Import data from CSV file
 df_total = pd.read_csv("../data/DailyDelhiClimate.csv", parse_dates=True)
 
-#%%
-# Convert column containing the date to datetime format
+# df_total['date'] = pd.to_datetime(df_total['date'])
 
-df_total['date'] = pd.to_datetime(df_total['date'], format="%Y-%m-%d")
-
-
-# %%
-df_total.head()
-
-df_total.describe()
+df_total.dtypes
 
 #%%
 # Visualization of input data before preparation
-
-df_total = df_total.set_index('date')
 
 fig = plt.figure(figsize=(30, 10))
 rows = 2
@@ -91,6 +82,5 @@ plt.subplots_adjust(wspace=0.5)
 
 plt.show()
 # %%
-# Interpolate missing dates
-
+# Interpolate values from missing dates
 
