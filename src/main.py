@@ -44,11 +44,26 @@ df_total["meanpressure"].plot()
 
 plt.show()
 
+#%%
+#Boxplot for detection of outliers
+
+fig, ax = plt.subplots(1, 4, figsize=(30, 10))
+
+# draw boxplots - for one column in each subplot
+df_total.boxplot('meantemp', ax=ax[0])
+df_total.boxplot('humidity', ax=ax[1])
+df_total.boxplot('wind_speed', ax=ax[2])
+df_total.boxplot('meanpressure', ax=ax[3])
+
+plt.subplots_adjust(wspace=0.5) 
+
+plt.show()
+
 
 #%%
 # Data preparation
 
-## Detection and removal of outliers
+## Removal of outliers
 q_low = df_total["meanpressure"].quantile(0.01)
 q_hi  = df_total["meanpressure"].quantile(0.99)
 
