@@ -36,7 +36,7 @@ jobs:
 
       # Create requirements.txt
       - name: Create requirements.txt
-        run: pipenv requirements > requirements.txt
+        run: pipenv requirements --dev > requirements.txt
 
       # Install Dependencies
       - name: Install dependencies
