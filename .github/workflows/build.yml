@@ -48,10 +48,13 @@ jobs:
           cd src/
           python3 main.py
 
-      - name: Check linting
+      - name: Check linting of .py files
         uses: fylein/python-pylint-github-action@v1
         with:
           args: python -m pip install matplotlib pandas scikit-learn ; pylint src
+
+      - name: Check linting of .ipynb files
+        run: nbqa pylint src --fail-under=8
 
   formatting:
     runs-on: ubuntu-latest

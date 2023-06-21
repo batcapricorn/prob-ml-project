@@ -25,7 +25,7 @@ We use two main tools to assure code quality 😇
 - [black](https://github.com/psf/black) for formatting: `pipenv run black src` 
 - [pylint](https://pypi.org/project/pylint/) for linting: `pipenv run pylint src`
 
-Both is checked by a GitHub Actions pipeline (see `.github/workflows/build.yml`).
+Both is checked by a GitHub Actions pipeline (see `.github/workflows/build.yml`). If you work with Jupyter Notebooks, checkout [nbAQ](https://nbqa.readthedocs.io/en/latest/).
 
 ### Versioning
 Since comparing pull requests can be quite tricky using Jupyter Notebooks, we use [reviewNB](https://www.reviewnb.com/) to display diffs.
