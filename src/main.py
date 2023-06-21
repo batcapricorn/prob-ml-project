@@ -11,9 +11,6 @@ from datetime import datetime
 # Import data from CSV file
 df_total = pd.read_csv("../data/DailyDelhiClimate.csv", parse_dates=True)
 
-# df_total['date'] = pd.to_datetime(df_total['date'])
-
-df_total.dtypes
 
 #%%
 # Visualization of input data before preparation
@@ -81,6 +78,4 @@ df_total.boxplot('meanpressure', ax=ax[3])
 plt.subplots_adjust(wspace=0.5) 
 
 plt.show()
-# %%
-# Interpolate values from missing dates
 
