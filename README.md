@@ -23,7 +23,9 @@ You should be good to go! 🐥 We use the [VS Code Jupyter Extension](https://co
 ### Quality Guidelines
 We use two main tools to assure code quality 😇
 - [black](https://github.com/psf/black) for formatting: `pipenv run black src` 
-- [pyint](https://pypi.org/project/pylint/) for linting: ` pipenv run pylint src`
-
+- [pylint](https://pypi.org/project/pylint/) for linting: ` pipenv run pylint src`
 
 Both is checked by a GitHub Actions pipeline (see `.github/workflows/build.yml`).
+
+### Versioning
+Since comparing pull requests can be quite tricky using Jupyter Notebooks, we use [reviewNB](https://www.reviewnb.com/) to display diffs.
