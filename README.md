@@ -4,7 +4,7 @@ We apply Gaussian Processes to predict daily climate data.
 ## Quick Start
 
 1. Start a `Jupyter` server by running `docker run -p 8888:8888 -v $(pwd):/home/jovyan/work jupyter/scipy-notebook`. Make sure you have `docker` up and running. Token-authentication is enabled, meaning you can access the application by opening `http://127.0.0.1:8888/lab?token=<YOUR_TOKEN>`. The URL, including your token, is displayed in your terminal.
-2. Open `src/main.py` and explore our data analysis 🔥
+2. Open `src/GP_Main.ipynb` and explore our data analysis 🔥
 
 ## Developer Guide
 ### Setup

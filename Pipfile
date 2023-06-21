@@ -8,7 +8,7 @@ ipykernel = "*"
 matplotlib = "*"
 pandas = "*"
 scikit-learn = "*"
-nbqa = "*"
+nbqa = {extras = ["pylint"], version = "*"}
 
 [dev-packages]
 black = "*"
