@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2a07da61adb83ebcfd5b37d41eb1a3d7c0870dba903b3d973ce4e46dea9160b9"
+            "sha256": "f2d686a306415a9491099f592c6933f870cbe59f3c34bc90d68fcd1c52d62926"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -372,6 +372,9 @@
             "version": "==0.1.6"
         },
         "nbqa": {
+            "extras": [
+                "pylint"
+            ],
             "hashes": [
                 "sha256:117112ad6d618ff13afc5ba41ca0ff21c23f084a6df7875fb04b7f2c01a136c4",
                 "sha256:42a79b0f57c3ef47b8b223dc8c265f499812f529dc5154688449e7bd05d76b7e"
