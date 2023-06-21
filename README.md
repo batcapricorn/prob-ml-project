@@ -1,8 +1,18 @@
+![main workflow](https://github.com/batcapricorn/prob-ml-project/actions/workflows/build.yml/badge.svg)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 # Probablistic Machine Learning - Summer 2023 - Project
 We apply Gaussian Processes to predict daily climate data.
 
 ## Quick Start
 
+### Google Colab
+Discover our notebooks using [Google Colab](https://colab.research.google.com/?utm_source=scs-index):
+- [Basics of Gaussian Processes](https://colab.research.google.com/github/batcapricorn/prob-ml-project/blob/main/src/GP_Background.ipynb)
+- [Main Analysis](https://colab.research.google.com/github/batcapricorn/prob-ml-project/blob/main/src/GP_Main.ipynb)
+
+### Local Setup
 1. Start a `Jupyter` server by running `docker run -p 8888:8888 -v $(pwd):/home/jovyan/work jupyter/scipy-notebook`. Make sure you have `docker` up and running. Token-authentication is enabled, meaning you can access the application by opening `http://127.0.0.1:8888/lab?token=<YOUR_TOKEN>`. The URL, including your token, is displayed in your terminal.
 2. Open `src/GP_Main.ipynb` and explore our data analysis 🔥
 
