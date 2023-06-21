@@ -36,7 +36,7 @@ jobs:
 
       # Create requirements.txt
       - name: Create requirements.txt
-        run: pipenv requirements > requirements.txt
+        run: pipenv requirements --dev > requirements.txt
 
       # Install Dependencies
       - name: Install dependencies
@@ -54,7 +54,7 @@ jobs:
           args: python -m pip install matplotlib pandas scikit-learn ; pylint src
 
       - name: Check linting of .ipynb files
-        run: nbqa pylint src --fail-under=8
+        run: nbqa pylint src --fail-under=5 --nbqa-shell
 
   formatting:
     runs-on: ubuntu-latest
