@@ -49,12 +49,14 @@ jobs:
           python -m pip install jupyter nbconvert
           jupyter nbconvert --to script GP_Background.ipynb
           python3 GP_Background.py
+          rm GP_Background.py
 
       - name: Run Main notebook
         run: |
           cd src/
           jupyter nbconvert --to script GP_Main.ipynb
           python3 GP_Main.py
+          rm GP_Main.py
       
       # PyLint
       - name: Check linting of .py files
