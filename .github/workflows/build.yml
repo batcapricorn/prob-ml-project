@@ -43,11 +43,20 @@ jobs:
         run: pip install -r requirements.txt
 
       # Run build
-      - name: Run main.py
+      - name: Run background notebook
         run: |
           cd src/
-          python3 main.py
+          python -m pip install jupyter nbconvert
+          jupyter nbconvert --to script GP_Background.ipynb
+          python3 GP_Background.py
 
+      - name: Run Main notebook
+        run: |
+          cd src/
+          jupyter nbconvert --to script GP_Main.ipynb
+          python3 GP_Main.py
+      
+      # PyLint
       - name: Check linting of .py files
         uses: fylein/python-pylint-github-action@v1
         with:
